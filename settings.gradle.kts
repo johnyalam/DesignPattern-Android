@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "DesignPattern-Android"
 include(":app")
+include(":basic-kotlin")
