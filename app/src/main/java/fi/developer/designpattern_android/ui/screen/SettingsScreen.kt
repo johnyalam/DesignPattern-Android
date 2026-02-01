@@ -17,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -29,12 +28,13 @@ import fi.developer.designpattern_android.ui.theme.DesignPatternAndroidTheme
 import fi.developer.designpattern_android.viewmodel.HomeViewModel
 
 @Composable
-fun HomeScreen(navController: NavController, modifier: Modifier = Modifier,
+fun SettingsScreen(navController: NavController, modifier: Modifier = Modifier,
                viewModel: HomeViewModel = HomeViewModel(LocalContext.current.applicationContext as Application)) {
     val deviceInfo by viewModel.deviceInfo.collectAsState()
 
-    LazyColumn(modifier = modifier.fillMaxSize().background(Color.White).padding(16.dp)) {
-        item { Text("Device Information", style = MaterialTheme.typography.titleLarge) }
+    LazyColumn(modifier = modifier.fillMaxSize().background(Color.Red).padding(16.dp)) {
+
+        item { Text("Device Settings", style = MaterialTheme.typography.titleLarge) }
         item{ Spacer(modifier = Modifier.height(16.dp))}
 
         item { InfoRow("Manufacturer", deviceInfo.manufacturer) }
@@ -51,22 +51,18 @@ fun HomeScreen(navController: NavController, modifier: Modifier = Modifier,
         item {
             Row(modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround) {
-                Button(onClick = { navController.navigate("settings") }) {
-                    Text("Settings")
-                }
-                Button(onClick = { navController.navigate("about") }) {
-                    Text("About")
+                Button(onClick = { navController.popBackStack()}) {
+                    Text("Back")
                 }
             }
         }
     }
-
 }
 
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+fun SettingsScreenPreview() {
     DesignPatternAndroidTheme {
         val navController: NavController = NavController(LocalContext.current)
         HomeScreen(navController)
