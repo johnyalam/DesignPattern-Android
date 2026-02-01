@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fi.developer.basic_kotlin.NativeLib
 import fi.developer.basic_kotlin.system.DeviceInformation
+import fi.developer.designpattern_android.ui.screen.HomeScreen
 import fi.developer.designpattern_android.ui.theme.DesignPatternAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DesignPatternAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    HomeScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -39,27 +40,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    Box(modifier = Modifier.padding(10.dp)) {
-        Text(
-            text = DeviceInformation.from(LocalContext.current).androidVersion,
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            color = Color.Green,
-            fontSize = 40.sp,
-            lineHeight = 40.sp,
-            fontStyle = FontStyle.Italic,
-            
-        )
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun HomeScreenPreview() {
     DesignPatternAndroidTheme {
-        Greeting()
+        HomeScreen()
     }
 }
