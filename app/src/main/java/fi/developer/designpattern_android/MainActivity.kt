@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fi.developer.basic_kotlin.NativeLib
 import fi.developer.basic_kotlin.system.DeviceInformation
+import fi.developer.designpattern_android.ui.navigation.NavigationStack
 import fi.developer.designpattern_android.ui.screen.HomeScreen
 import fi.developer.designpattern_android.ui.theme.DesignPatternAndroidTheme
 
@@ -31,9 +32,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             DesignPatternAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    Box(modifier = Modifier.padding(innerPadding)){
+                        NavigationStack()
+                    }
                 }
             }
         }
@@ -44,6 +45,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun HomeScreenPreview() {
     DesignPatternAndroidTheme {
-        HomeScreen()
+        NavigationStack()
     }
 }

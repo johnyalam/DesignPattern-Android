@@ -61,4 +61,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx) // For Coroutines support
     ksp(libs.androidx.room.compiler) // Use KSP instead of kapt
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
 }
