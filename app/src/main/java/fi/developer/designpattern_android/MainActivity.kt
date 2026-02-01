@@ -11,13 +11,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fi.developer.basic_kotlin.NativeLib
+import fi.developer.basic_kotlin.system.DeviceInformation
 import fi.developer.designpattern_android.ui.theme.DesignPatternAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,11 +43,10 @@ class MainActivity : ComponentActivity() {
 fun Greeting(modifier: Modifier = Modifier) {
     Box(modifier = Modifier.padding(10.dp)) {
         Text(
-            text = getStringFromNativeLib(),
+            text = DeviceInformation.from(LocalContext.current).androidVersion,
             modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp),
-            maxLines = 2,
             color = Color.Green,
             fontSize = 40.sp,
             lineHeight = 40.sp,
@@ -52,10 +54,6 @@ fun Greeting(modifier: Modifier = Modifier) {
             
         )
     }
-}
-
-private fun getStringFromNativeLib(): String {
-    return NativeLib.getString()
 }
 
 @Preview(showBackground = true)
