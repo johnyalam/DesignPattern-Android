@@ -19,12 +19,14 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dagger.hilt.android.AndroidEntryPoint
 import fi.developer.basic_kotlin.NativeLib
 import fi.developer.basic_kotlin.system.DeviceInformation
 import fi.developer.designpattern_android.ui.navigation.NavigationStack
 import fi.developer.designpattern_android.ui.screen.HomeScreen
 import fi.developer.designpattern_android.ui.theme.DesignPatternAndroidTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
