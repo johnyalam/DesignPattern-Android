@@ -1,4 +1,4 @@
-package fi.developer.designpattern_android.ui.theme
+package fi.developer.designpattern_android.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,6 +1,5 @@
-package fi.developer.designpattern_android.ui.theme
+package fi.developer.designpattern_android.presentation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
