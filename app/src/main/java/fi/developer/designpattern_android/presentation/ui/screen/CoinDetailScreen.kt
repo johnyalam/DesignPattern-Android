@@ -55,8 +55,8 @@ fun CoinDetailScreen(
                             modifier = Modifier.weight(8f)
                         )
                         Text(
-                            text = if(coin.is_active) "active" else "inactive",
-                            color = if(coin.is_active) Color.Green else Color.Red,
+                            text = if(coin.isActive) "active" else "inactive",
+                            color = if(coin.isActive) Color.Green else Color.Red,
                             fontStyle = FontStyle.Italic,
                             textAlign = TextAlign.End,
                             modifier = Modifier
@@ -89,7 +89,6 @@ fun CoinDetailScreen(
                             .fillMaxWidth()
                             .padding(10.dp)
                     )
-                    Divider()
                 }
             }
         }
